@@ -6,12 +6,11 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 10:46:15 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/06 20:46:01 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/07 11:02:03 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/lim_in.h"
-
 
 t_node		*ft_new_node(int id, char *name, intmax_t x, intmax_t y)
 {
@@ -113,7 +112,6 @@ BOOL	ft_get_nbr_ant(t_map *map)
 	line = NULL;
 	while (get_next_line(0, &line) && is_comment(line))
 		ft_printf("%s\n", line);
-	
 	if (!ft_strlen(line))
 	{
 		ft_printf("empty file\n");
@@ -322,7 +320,7 @@ void	read_map()
 	 ** lecture des noms et des coordonnees de salles
 	 ** prendre en compt les commentaires
 	 */
-	ft_get_room(&map);
+//	ft_get_room(&map);
 
 	/*	int i = 1;
 		while (get_next_line(0, &line))
@@ -348,7 +346,7 @@ void	read_map()
 
 int		main(void)
 {
-	t_node *node_1;
+/*	t_node *node_1;
 	t_node *node_2;
 	t_node *node_3;
 	t_node *node_4;
@@ -366,8 +364,8 @@ int		main(void)
 
 
 
-	ft_printf("/********************************************\\\n");
-	/*
+	ft_printf("/ ********************************************\\\n");
+	
 	   ft_add_end_intlist(2, &node_1->list_neighbors);
 	   ft_add_end_intlist(3, &node_1->list_neighbors);
 	   ft_add_end_intlist(4, &node_1->list_neighbors);
@@ -376,7 +374,7 @@ int		main(void)
 
 
 	   ft_put_node(node_1);
-	   */	ft_printf("/********************************************\\\n");
+	   */
 
 
 	read_map();

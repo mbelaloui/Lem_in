@@ -546,7 +546,8 @@ void		ft_add_neighbors(t_listnode *listnode, char *node_name, char*neighbor)
 	while (listnode && ft_strcmp(node_name, listnode->node->name))
 		listnode = listnode->next;
 
-	if (listnode)
+	if (listnode && 
+!ft_is_in_int_list(id_neighbor, listnode->node->list_neighbors))
 		ft_add_end_intlist(id_neighbor, &listnode->node->list_neighbors);
 
 	
@@ -571,7 +572,7 @@ void	ft_get_links_room_graph(t_charlist *links, t_listnode *listnodes)
 			name1  = ft_getword(links->data, 0, '-');
 			name2  = ft_getword(links->data, 1, '-');
 
-			ft_printf("%s   %s \n",name1, name2);
+			ft_printf("%s   %s reste a dedetecter les - just apres le 2emme nom \n",name1, name2);
 
 
 			if (!ft_is_name_in_listnode(name1, listnodes))

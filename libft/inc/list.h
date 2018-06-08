@@ -67,7 +67,7 @@ void					ft_put_int_list(const t_int_list *list);
 void					ft_put_tow_piles(t_int_list *list_a,
 		t_int_list *list_b);
 t_int_list				*ft_tab_to_int_list(intmax_t *tab, size_t size);
-void					ft_clear_int_list(t_int_list **list);
+//void					ft_clear_intlist(t_int_list **list);
 int						ft_get_index_first_elem_bigger_intlist(
 		const t_int_list *list, const intmax_t val);
 int						ft_get_index_last_elem_bigger_intlist(

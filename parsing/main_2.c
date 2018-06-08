@@ -107,10 +107,54 @@ BOOL    ft_is_empty_listnode(t_listnode *list)
 	return ((list) ? F : T);
 }
 
+BOOL		ft_dell_node(t_node **node)
+{
+	t_int_list	*to_free_list;
+	char			*to_free_name;
+
+	if (node && *node)
+	{
+		
+		to_free_name =  (*node)->name;
+		ft_strdel(&to_free_name);
+		to_free_list = (*node)->list_neighbors;
+		ft_clear_intlist(  &to_free_list  );
+		free(*node);
+		return (T);
+	}
+	return (F);
+}
+
+BOOL    ft_dell_bgn_listnode(t_listnode **list)
+{
+        t_listnode      *to_free;
+
+        if ((*list) == NULL)
+                return (F);
+        to_free = *list;
+        if (!(*list)->next)
+                *list = NULL;
+        else
+                *list = (*list)->next;
+        ft_dell_node(&(to_free->node));
+        free(to_free);
+        return (T);
+}
 
 
 
 
+BOOL	ft_clear_list_lisitnode(t_listnode **list)
+{
+	if (list && *list)
+	{
+		while (*list)	
+			ft_dell_bgn_listnode(list);	
+		return (T);
+	}
+
+	return (F);
+}
 
 
 
@@ -332,6 +376,17 @@ void	error_ants(int error)
 	exit(1);
 }
 
+BOOL    ft_is_coord_in_listnode(int x, int y, t_listnode *list)
+{
+	while(list)
+	{
+		if (list->node->x == x && list->node->y == y)
+			return (T);
+		list = list->next;
+	}
+	return (F);
+}
+
 BOOL    ft_is_name_in_listnode(char *nom, t_listnode *list)
 {
 	while(list)
@@ -365,6 +420,7 @@ t_node	*ft_get_room(char *str, int id_room)
 {
 	t_node *ret;
 	char *name;
+	char *x;
 	char *y;
 
 	if (ft_comptword(str, SP) != 3)	
@@ -373,30 +429,43 @@ t_node	*ft_get_room(char *str, int id_room)
 	if (ft_is_c_in_str('-', name))
 		error_room(ERROR_NAME_ROOM_FORMAT);
 	ret = ft_new_node(id_room, name, 0, 0);
-	name = ft_getword(str, 1, ' ');
+
+
+	x = ft_getword(str, 1, ' ');
 	y = ft_getword(str, 2, ' ');
 	if (!ft_isnumerique(name) || !ft_isnumerique(y))
 		error_room(ERROR_COORDINATES_ROOM_FORMAT);
-	ret->x = ft_atointmax(name);
+	ret->x = ft_atointmax(x);
 	ret->y = ft_atointmax(y);
+
+	
+
+//	free (name);
+//	ft_strdel(&name);		
+	ft_strdel(&x);		
+	ft_strdel(&y);		
 
 ///	free   y    name*2
 
 	return (ret);
 }
 
-BOOL		ft_exist_name(char *name, t_listnode *listnodes)
+BOOL		ft_exist(t_node *node, t_listnode *listnodes)
 {
-	if (ft_is_name_in_listnode(name, listnodes))
+	if (ft_is_name_in_listnode(node->name, listnodes))
 		return (T);
 
+	if (ft_is_coord_in_listnode(node->x, node->y, listnodes))
+		return (T);
+		//error_room(ERROR_COORDINATES_ROOM_EXIST);
 
-/*	if (ft_is_cood_in_listnode(nom, listnodes))
-		error_room(ERROR_COORDINATES_ROOM_EXIST);
-*/
 	return (F);
 }
 
+
+/*
+**	voir pour tout les cas de break si j'ai des leaks 
+*/
 t_charlist	*ft_get_room_graph(t_map *map, t_charlist	*line,
 		t_listnode **lstnodes)
 {
@@ -411,7 +480,7 @@ t_charlist	*ft_get_room_graph(t_map *map, t_charlist	*line,
 	{
 		if (is_start(line->data))
 		{
-			if ( is_end((line->next)->data) ||
+				if ( is_end((line->next)->data) ||
 			!(temp_node = ft_get_room((line->next)->data, cp)))
 				break; //exit(1);
 			else
@@ -431,14 +500,18 @@ t_charlist	*ft_get_room_graph(t_map *map, t_charlist	*line,
 			if (!(temp_node = ft_get_room(line->data, cp)))
 				break ;//exit(1);
 		}
-		if (ft_exist_name(temp_node->name, listnodes))
-						//error_room(ERROR_NAME_ROOM_EXISTS);
+		if (ft_exist(temp_node, listnodes))
+		{				//error_room(ERROR_NAME_ROOM_EXISTS);
+			ft_dell_node( &temp_node);
 			break;		
+		}
 		else
 			ft_add_end_list_listnode(temp_node, &listnodes);
 		cp ++;
 		line = line->next;
 	}
+
+
 	*lstnodes = listnodes;	
 	return (line);
 }
@@ -488,20 +561,29 @@ void	ft_get_links_room_graph(t_charlist *links, t_listnode *listnodes)
 
 	while (links)
 	{
+	//		ft_printf(" %s \n", links->data);
 		if (ft_is_c_in_str('-', links->data))
 		{
+
 			if (ft_comptword(links->data, '-') != 2)	
 				error_links(ERROR_FORMAT_LINK);
+
 			name1  = ft_getword(links->data, 0, '-');
 			name2  = ft_getword(links->data, 1, '-');
-//			ft_printf("%s   %s \n",name1, name2);
-			if (!ft_exist_name(name1, listnodes))
+
+			ft_printf("%s   %s \n",name1, name2);
+
+
+			if (!ft_is_name_in_listnode(name1, listnodes))
 				error_links(ERROR_FORMAT_LINK_NAME);
-			if (!ft_exist_name(name2, listnodes))
+			if (!ft_is_name_in_listnode(name2, listnodes))
 				error_links(ERROR_FORMAT_LINK_NAME);
 
 			ft_add_neighbors(listnodes, name1, name2);
-		
+
+			ft_strdel(&name1);		
+			ft_strdel(&name2);		
+
 			/*
 		
 				while (name ! list name )
@@ -536,7 +618,10 @@ void	ft_extract_info_file(t_charlist *file, t_map *map)
 	ft_get_links_room_graph(links, listnodes);
 	ft_printf("/ *************** end reading ***************** \\ \n");
 	
+
 	ft_put_list_listnode(listnodes);
+	ft_clear_list_lisitnode(&listnodes);
+
 }
 
 void	read_map()
@@ -553,6 +638,8 @@ void	read_map()
 //	ft_put_list_charlist(file);
 	ft_dell_list_charlist(&file);
 	ft_put_map(&map);
+
+
 }
 
 int		main(int argc, char **argv)

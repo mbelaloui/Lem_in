@@ -15,6 +15,13 @@
 
 # include "lim_in.h"
 
+/*
+**	changer les int x et int y en char *  
+** et les free en del just auqnd ont dell le noeud 
+** ft_get_room
+*/
+
+
 typedef struct			s_node
 {
 	int					id;

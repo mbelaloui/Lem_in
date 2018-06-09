@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/05 12:45:00 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/06/09 11:47:20 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ SRC_NBR		= ft_abs.c ft_decimal_to_base_stat.c ft_max.c ft_atoi.c\
 			  ft_base_to_decimal.c ft_get_mask.c ft_putnbr_fd.c\
 			  ft_base_to_decimal_v2.c ft_intochar.c ft_udecimal_to_base_stat.c\
 			  ft_decimal_to_base_dynm.c ft_is_elem_base.c ft_unbrlen.c\
-			  ft_is_overflow_intmax.c ft_atointmax.c ft_swap_int.c
+			  ft_is_overflow_intmax.c ft_atointmax.c ft_swap_int.c\
+			  ft_isnumerique.c
 SRCS_NBR	= $(addprefix $(DIR_NBR)/, $(SRC_NBR))
 
 DIR_STR		= str
@@ -98,6 +99,18 @@ SRC_TAB		= ft_put_intmax_tab.c ft_bubble_sort_tab.c ft_mergesort_tab.c\
 			  ft_med_tab.c
 SRCS_TAB	= $(addprefix $(DIR_TAB)/, $(SRC_TAB))
 
+DIR_NODE	= node
+SRC_NODE	= ft_dell_node.c ft_new_node.c  ft_put_node.c
+SRCS_NODE	= $(addprefix $(DIR_NODE)/, $(SRC_NODE))
+
+DIR_NODELST	= nodelist
+SRC_NODELST	= ft_add_end_list_nodelist.c ft_dell_bgn_nodelist.c\
+			  ft_new_nodelist.c ft_clear_list_nodelist.c\
+			  ft_is_empty_nodelist.c ft_put_list_nodelist.c\
+			  ft_is_coord_in_nodelist.c ft_is_name_in_nodelist.c\
+			  ft_get_id_node.c ft_add_neighbors.c ft_exist_node_nodelist.c
+SRCS_NODELST= $(addprefix $(DIR_NODELST)/, $(SRC_NODELST))
+
 DIR_CHARLST	= charlist
 SRC_CHARLST	= ft_add_charlist.c ft_dell_charlist.c ft_dell_list_charlist.c\
 			  ft_new_charlist.c ft_put_charlist.c ft_isempty_charlist.c\
@@ -114,7 +127,7 @@ PRINTF		= libftprintf.a
 
 SRC			= $(SRCS_CHAR) $(SRCS_FILE) $(SRCS_INTLIST) $(SRCS_LST) $(SRCS_MAT)\
 			  $(SRCS_MEM) $(SRCS_NBR) $(SRCS_STR) $(SRCS_SYS) $(SRCS_WCHAR)\
-			  $(SRCS_TAB) $(SRCS_CHARLST)
+			  $(SRCS_TAB) $(SRCS_CHARLST) $(SRCS_NODE) $(SRCS_NODELST)
 
 OBJ			= $(addprefix $(OBJS_DIR), $(SRC:.c=.o))
 
@@ -150,6 +163,8 @@ $(OBJS_DIR)		:
 		@mkdir -p $(OBJS_DIR)/$(DIR_LST);
 		@mkdir -p $(OBJS_DIR)/$(DIR_MAT);
 		@mkdir -p $(OBJS_DIR)/$(DIR_MEM);
+		@mkdir -p $(OBJS_DIR)/$(DIR_NODE);
+		@mkdir -p $(OBJS_DIR)/$(DIR_NODELST);
 		@mkdir -p $(OBJS_DIR)/$(DIR_NBR);
 		@mkdir -p $(OBJS_DIR)/$(DIR_STR);
 		@mkdir -p $(OBJS_DIR)/$(DIR_TAB);

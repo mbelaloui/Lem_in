@@ -6,16 +6,16 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 10:48:36 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/06 19:19:43 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/09 11:32:36 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIM_IN_H
 # define LIM_IN_H
 
-# include "../libft/inc/libft.h"
-# include "listnode.h"
-# include "node.h"
+# include "../libft/inc/nodelist.h"
+//# include "nodelist.h"
+//# include "node.h"
 # define  SP  ' '
 
 #define ERROR_COORDINATES_ROOM_EXIST	7
@@ -42,7 +42,7 @@ typedef struct			s_map
 	int				end;
 }						t_map;
 
-t_node		*ft_new_node(int id, char *name, intmax_t x, intmax_t y);
+/*t_node		*ft_new_node(int id, char *name, intmax_t x, intmax_t y);
 void 			ft_put_map(t_map *map);
 void    ft_put_node(t_node * node);
 BOOL    is_start(char *str);
@@ -59,7 +59,7 @@ BOOL    ft_is_in_listcode(char *nom, t_listnode *list);
 //BOOL    ft_get_room(t_map *map);
 void    ft_init_map(t_map *map);
 void    read_map();
-
+*/
 
 
 

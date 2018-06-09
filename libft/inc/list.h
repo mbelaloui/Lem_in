@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 17:45:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/06 17:23:21 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/08 18:55:50 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ intmax_t				*ft_int_list_to_int_tab(t_int_list *list);
 
 BOOL					ft_are_cancel_out_action(char *action_a,
 		char *action_b);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 10:48:36 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/09 11:32:36 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/10 20:48:42 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,31 @@
 #define ERROR_NO_START				-4		// il y a deux	
 #define ERROR_NO_END					-5		// il y a deeux
 #
-typedef struct			s_map
+typedef struct	s_map
 {
-	intmax_t			nbr_ants;
-	int				start;
-	int				end;
-}						t_map;
+	intmax_t	nbr_ants;
+	int			start;
+	int			end;
+}				t_map;
+
+void			ft_put_map(t_map *map);
+void			ft_init_map(t_map *map);
+
+void			ft_syntax_error(int error);
+void			ft_ants_error(int error);
+void			ft_room_error(int error);
+void			ft_links_error(int error);
+BOOL			ft_is_start(char *str);
+BOOL			ft_is_end(char *str);
+BOOL			ft_is_comment(char *str);
+
+t_charlist		*ft_first_passe(void);
+intmax_t		ft_get_nbr_ants(t_charlist *line);
+t_node			*ft_get_room(char *str, int id_room);
+t_charlist		*ft_get_room_graph(t_map *map, t_charlist*line,
+		t_nodelist **lstnodes);
+void			ft_get_links_room_graph(t_charlist *links,
+		t_nodelist *listnodes);
 
 /*t_node		*ft_new_node(int id, char *name, intmax_t x, intmax_t y);
 void 			ft_put_map(t_map *map);

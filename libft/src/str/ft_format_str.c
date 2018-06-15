@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 12:15:09 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/09 14:32:12 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/13 19:25:32 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char		*ft_format_str(const char *str)
 			if (*str && !begin)
 				result[pt++] = ' ';
 		}
-		else
+		else if (*str)
 		{
 			result[pt++] = *str;
 			str++;

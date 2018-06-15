@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 19:55:16 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/10 19:56:36 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/15 18:16:21 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_init_map(t_map *map)
 {
-	ft_bzero(map, sizeof (*map));
+	ft_bzero(map, sizeof(*map));
+	map->nbr_ants = -1;
+	map->start = -1;
+	map->end = -1;
 }

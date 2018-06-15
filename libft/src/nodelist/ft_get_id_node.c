@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 11:38:28 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/09 11:39:10 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/13 10:41:39 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int		ft_get_id_node(char *node_name, t_nodelist *listnode)
 	while (listnode && ft_strcmp(node_name, listnode->node->name))
 		listnode = listnode->next;
 	if (listnode)
-		ret = listnode->node->id ;
+		ret = listnode->node->id;
 	return (ret);
 }

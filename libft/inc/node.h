@@ -6,18 +6,18 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 16:38:34 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/09 11:39:17 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/15 13:59:27 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef NODE_H
 # define NODE_H
 
-//# include "libft.h"
 # include "list.h"
+
 /*
-**	changer les int x et int y en char *  
-** et les free en del just auqnd ont dell le noeud 
+** changer les int x et int y en char *
+** et les free en del just auqnd ont dell le noeud
 ** ft_get_room
 */
 
@@ -34,5 +34,6 @@ typedef struct			s_node
 BOOL					ft_dell_node(t_node **node);
 t_node					*ft_new_node(int id, char *name,
 		intmax_t x, intmax_t y);
-void					ft_put_node(t_node * node);
+void					ft_put_node(t_node *node);
+
 #endif

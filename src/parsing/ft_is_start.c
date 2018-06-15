@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 20:34:01 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/10 20:34:31 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/14 16:46:21 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ BOOL	ft_is_start(char *str)
 {
 	char *start;
 
-	start = "##start"	;
+	start = "##start";
 	if (!ft_strcmp(str, start))
 		return (T);
 	return (F);

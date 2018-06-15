@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/08 18:39:33 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/08 18:40:34 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/14 13:35:25 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ BOOL	ft_isnumerique(char *str)
 		while (ft_isdigit(str[i]))
 			i++;
 		return ((!ft_isalpha(str[i])
-					&& (str[i] == 0 || ft_isdigit(str[i])) )  ? T : F);
+					&& (str[i] == 0 || ft_isdigit(str[i]))) ? T : F);
 	}
 	return (F);
 }

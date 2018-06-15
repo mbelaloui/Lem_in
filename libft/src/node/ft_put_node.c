@@ -6,13 +6,13 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/08 18:17:32 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/08 18:19:28 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/14 20:21:30 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/node.h"
 
-void	ft_put_node(t_node * node)
+void	ft_put_node(t_node *node)
 {
 	t_int_list *pt_lngbrs;
 
@@ -36,4 +36,5 @@ void	ft_put_node(t_node * node)
 		}
 		ft_printf("}.\n");
 	}
+	ft_printf("/ ****************************************** \\\n");
 }

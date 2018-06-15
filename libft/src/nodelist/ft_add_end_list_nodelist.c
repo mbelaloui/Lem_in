@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/08 18:30:59 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/08 18:31:26 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/13 10:40:45 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ BOOL	ft_add_end_list_nodelist(t_node *node, t_nodelist **list)
 	t_nodelist		*temp_node;
 	t_nodelist		*pt_list;
 
-	if (!node || ! (temp_node = ft_new_nodelist(node)))
+	if (!node || !(temp_node = ft_new_nodelist(node)))
 		return (F);
 	if (!(*list))
 		*list = temp_node;

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 11:44:49 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/09 11:44:50 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/14 16:30:18 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ BOOL	ft_exist_node_nodelist(t_node *node, t_nodelist *listnodes)
 {
 	if (ft_is_name_in_nodelist(node->name, listnodes))
 		return (T);
-
 	if (ft_is_coord_in_nodelist(node->x, node->y, listnodes))
 		return (T);
-	//error_room(ERROR_COORDINATES_ROOM_EXIST);
 	return (F);
 }

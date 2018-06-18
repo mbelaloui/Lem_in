@@ -73,7 +73,7 @@ t_charlist		*ft_get_room_graph(t_map *map, t_charlist *line,
 	}
 	if (line && (ft_is_start(line->data) || ft_is_end(line->data)))
 		check_next(line);
-	if (line && !ft_is_c_in_str('-', line->data))
+	if ((line && !ft_is_c_in_str('-', line->data)) || line->data[0] == 'L')
 		ft_room_error(ERROR_COORDINATES_ROOM_EXIST, line->data);
 	*lstnodes = listnodes;
 	return (line);

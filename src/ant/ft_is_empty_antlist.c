@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_bgn_nodelist.c                             :+:      :+:    :+:   */
+/*   ft_is_empty_antlist.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 18:36:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 20:11:35 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/18 16:25:42 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/18 16:26:33 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/nodelist.h"
+#include "../../inc/lim_in.h"
 
-BOOL	ft_dell_bgn_nodelist(t_nodelist **list)
+BOOL	ft_is_empty_antlist(const t_ant *list)
 {
-	t_nodelist	*to_free;
-
-	if ((*list) == NULL)
-		return (F);
-	to_free = *list;
-	if (!(*list)->next)
-		*list = NULL;
-	else
-		*list = (*list)->next;
-	ft_dell_node(&(to_free->node));
-	free(to_free);
-	return (T);
+	return ((list) ? F : T);
 }

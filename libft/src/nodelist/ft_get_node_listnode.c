@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_bgn_nodelist.c                             :+:      :+:    :+:   */
+/*   ft_get_node_listnode.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 18:36:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 20:11:35 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/18 15:07:20 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/18 15:09:05 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/nodelist.h"
 
-BOOL	ft_dell_bgn_nodelist(t_nodelist **list)
+t_node		*ft_get_node_listnode(t_nodelist *listnode, int id)
 {
-	t_nodelist	*to_free;
+	int pt;
 
-	if ((*list) == NULL)
-		return (F);
-	to_free = *list;
-	if (!(*list)->next)
-		*list = NULL;
-	else
-		*list = (*list)->next;
-	ft_dell_node(&(to_free->node));
-	free(to_free);
-	return (T);
+	pt = 0;
+	if (id < 0)
+		return (NULL);
+	while (listnode && pt < id)
+	{
+		listnode = listnode->next;
+		pt++;
+	}
+	if (listnode)
+		return (listnode->node);
+	return (NULL);
 }

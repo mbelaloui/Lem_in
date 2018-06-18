@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_bgn_nodelist.c                             :+:      :+:    :+:   */
+/*   ft_reste_status_listnode.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 18:36:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 20:11:35 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/18 15:16:41 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/18 20:11:45 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/nodelist.h"
 
-BOOL	ft_dell_bgn_nodelist(t_nodelist **list)
+void	ft_reste_status_listnode(t_nodelist *listnode)
 {
-	t_nodelist	*to_free;
-
-	if ((*list) == NULL)
-		return (F);
-	to_free = *list;
-	if (!(*list)->next)
-		*list = NULL;
-	else
-		*list = (*list)->next;
-	ft_dell_node(&(to_free->node));
-	free(to_free);
-	return (T);
+	while (	listnode)
+	{
+		listnode->node->stats = 0;
+		listnode = listnode->next;
+	}
 }

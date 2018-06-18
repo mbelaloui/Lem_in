@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 10:48:36 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/15 18:16:25 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/18 20:52:03 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define SP								' '
 
-# define ERROR_OVERFLOW_NBR_ANTS			-5
+# define ERROR_OVERFLOW_NBR_ANTS		-5
 # define ERROR_FORMAT_NBR_ANTS			-4
 # define ERROR_NEGATIVE_VAL_NBR_ANTS	-3
 # define ERROR_NULL_VAL_NBR_ANTS		-2
@@ -40,6 +40,10 @@
 # define ERROR_NO_LINKS					14
 # define ERROR_NO_START_ROOM_DECLARED	15
 # define ERROR_NO_END_ROOM_DECLARED		16
+# define ERROR_NO_ENOUGH_DATA			17
+# define ERROR_NO_PATH					18
+# define FREE							0
+# define TAKEN							1
 
 typedef struct	s_map
 {
@@ -50,6 +54,7 @@ typedef struct	s_map
 
 typedef struct	s_option
 {
+	int			b;
 	int			f;
 	int			h;
 	int			l;
@@ -97,5 +102,16 @@ void			ft_put_option(t_option *op);
 void			ft_put_help(void);
 void			ft_put_usage(void);
 
-void			ft_resolve_map(t_map map, t_nodelist *nodelist);
+void			ft_resolve_map(t_map map, t_nodelist *nodelist, t_option op);
+void			ft_erro_map(int error);
+
+t_ant			*ft_new_ant(int id, int pos);
+BOOL			ft_add_end_antlist(int id, int pos, t_ant **list);
+BOOL			ft_is_empty_antlist(const t_ant *list);
+void			ft_put_antlist(const t_ant *list, t_nodelist *listnode);
+BOOL			ft_dell_list_antlist(t_ant **to_free);
+t_ant			*ft_init_ants(intmax_t nbr_ants, intmax_t id_room);
+BOOL			ft_dell_bgn_ant(t_ant **list);
+
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/15 11:55:53 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/15 13:28:38 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/18 19:08:59 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	read_map(t_option op)
 	else if (op.m)
 		ft_put_map(&map);
 	else
-		ft_resolve_map(map, listnodes);
+		ft_resolve_map(map, listnodes, op);
 	ft_clear_list_nodelist(&listnodes);
 	ft_dell_list_charlist(&file);
 }

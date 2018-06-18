@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_bgn_nodelist.c                             :+:      :+:    :+:   */
+/*   ft_dell_bgn_ant.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 18:36:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 20:11:35 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/18 20:50:43 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/18 20:51:34 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/nodelist.h"
+#include "../../inc/lim_in.h"
 
-BOOL	ft_dell_bgn_nodelist(t_nodelist **list)
+BOOL	ft_dell_bgn_ant(t_ant **list)
 {
-	t_nodelist	*to_free;
+	t_ant	*to_free;
 
 	if ((*list) == NULL)
 		return (F);
@@ -23,7 +23,6 @@ BOOL	ft_dell_bgn_nodelist(t_nodelist **list)
 		*list = NULL;
 	else
 		*list = (*list)->next;
-	ft_dell_node(&(to_free->node));
 	free(to_free);
 	return (T);
 }

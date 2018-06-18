@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 16:58:47 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/15 13:34:55 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/18 19:16:44 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static BOOL	ft_is_option(const char option)
 {
 	if (option == 'f' || option == 'r' || option == 'l' || option == 'm'
-			|| option == 'u' || option == 'h')
+			|| option == 'u' || option == 'h' || option == 'b')
 		return (T);
 	return (F);
 }
@@ -34,6 +34,8 @@ static void	ft_set_options(char c, t_option *options)
 		options->h = 1;
 	else if (c == 'u')
 		options->u = 1;
+	else if (c == 'b')
+		options->b = 1;
 }
 
 BOOL		ft_extract_options(char *param, t_option *options)

@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 21:48:22 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/13 10:25:58 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/06/18 16:35:49 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,10 @@ SRC_NODELST	= ft_add_end_list_nodelist.c ft_dell_bgn_nodelist.c\
 			  ft_new_nodelist.c ft_clear_list_nodelist.c\
 			  ft_is_empty_nodelist.c ft_put_list_nodelist.c\
 			  ft_is_coord_in_nodelist.c ft_is_name_in_nodelist.c\
-			  ft_get_id_node.c ft_add_neighbors.c ft_exist_node_nodelist.c
+			  ft_get_id_node.c ft_add_neighbors.c ft_exist_node_nodelist.c\
+			  ft_size_nodelist.c ft_get_node_listnode.c ft_find_path_deep.c\
+			  ft_reste_status_listnode.c ft_get_father.c\
+			  ft_get_id_best_father.c ft_backtrack_path.c ft_find_path_width.c
 SRCS_NODELST= $(addprefix $(DIR_NODELST)/, $(SRC_NODELST))
 
 DIR_CHARLST	= charlist

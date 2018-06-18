@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_bgn_nodelist.c                             :+:      :+:    :+:   */
+/*   ft_init_ants.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 18:36:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 20:11:35 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/18 18:47:32 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/18 21:13:06 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/nodelist.h"
+#include "../../inc/lim_in.h"
 
-BOOL	ft_dell_bgn_nodelist(t_nodelist **list)
+t_ant	*ft_init_ants(intmax_t nbr_ants, intmax_t id_room)
 {
-	t_nodelist	*to_free;
+	t_ant		*listants;
+	intmax_t	id;
 
-	if ((*list) == NULL)
-		return (F);
-	to_free = *list;
-	if (!(*list)->next)
-		*list = NULL;
-	else
-		*list = (*list)->next;
-	ft_dell_node(&(to_free->node));
-	free(to_free);
-	return (T);
+	id = 1;
+	listants = NULL;
+	while (id <= nbr_ants)
+	{
+		ft_add_end_antlist(id, id_room, &listants);
+		id++;
+	}
+	return (listants);
 }

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_bgn_nodelist.c                             :+:      :+:    :+:   */
+/*   ft_get_father.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 18:36:13 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 20:11:35 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/18 15:18:26 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/18 17:54:24 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/nodelist.h"
 
-BOOL	ft_dell_bgn_nodelist(t_nodelist **list)
+t_int_list		*ft_get_father(int id_end, t_nodelist *listnode)
 {
-	t_nodelist	*to_free;
+	t_int_list *list_id_father;
 
-	if ((*list) == NULL)
-		return (F);
-	to_free = *list;
-	if (!(*list)->next)
-		*list = NULL;
-	else
-		*list = (*list)->next;
-	ft_dell_node(&(to_free->node));
-	free(to_free);
-	return (T);
+	list_id_father = NULL;
+	while (listnode)
+	{
+		if (ft_is_in_int_list(id_end, listnode->node->list_neighbors))
+			ft_add_end_intlist(listnode->node->id, &list_id_father);
+		listnode = listnode->next;
+	}
+	return (list_id_father);
 }

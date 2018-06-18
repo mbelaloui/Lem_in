@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/15 11:37:42 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/15 13:36:14 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/06/18 20:51:44 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,14 @@ SRCS_DISPLAY	= $(addprefix $(DIR_DISPLAY)/, $(SRC_DISPLAY))
 
 DIR_ERROR_MSG	= error_message
 SRC_ERROR_MSG	= ft_ants_error.c ft_links_error.c ft_option_error.c\
-				  ft_room_error.c ft_syntax_error.c
+				  ft_room_error.c ft_syntax_error.c ft_erro_map.c
 SRCS_ERROR_MSG	= $(addprefix $(DIR_ERROR_MSG)/, $(SRC_ERROR_MSG))
+
+DIR_ANT			= ant
+SRC_ANT			= ft_new_ant.c ft_add_end_antlist.c ft_is_empty_antlist.c\
+				  ft_put_antlist.c ft_dell_list_antlist.c ft_init_ants.c\
+				  ft_dell_bgn_ant.c
+SRCS_ANT		= $(addprefix $(DIR_ANT)/, $(SRC_ANT))
 
 DIR_MAP			= map
 SRC_MAP			= ft_init_map.c ft_put_map.c ft_resolve_map.c
@@ -44,7 +50,7 @@ LIBFT_DIR		= libft
 LIBFT			= libft.a
 
 SRCS			= exe.c $(SRCS_DISPLAY) $(SRCS_ERROR_MSG) $(SRCS_MAP)\
-		$(SRCS_PARSING)
+		$(SRCS_PARSING) $(SRCS_ANT)
 
 RED				= \033[31m
 GREEN			= \033[32m
@@ -75,6 +81,7 @@ $(OBJS_DIR)		:
 	@mkdir -p $(OBJS_DIR)$(DIR_ERROR_MSG);
 	@mkdir -p $(OBJS_DIR)$(DIR_PARSING);
 	@mkdir -p $(OBJS_DIR)$(DIR_MAP);
+	@mkdir -p $(OBJS_DIR)$(DIR_ANT);
 	@#mkdir -p $(OBJS_DIR)/$(DIR_CHECKER);
 
 clean			:

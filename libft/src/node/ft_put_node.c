@@ -19,6 +19,7 @@ void	ft_put_node(t_node *node)
 	ft_printf("id node    : %d\n", node->id);
 	ft_printf("name node  : %s\n", node->name);
 	ft_printf("stats node : %d\n", node->stats);
+	ft_printf("disut node : %d\n", node->dist);
 	ft_printf("spacial coordinats [%ld, %ld]\n", node->x, node->y);
 	pt_lngbrs = node->list_neighbors;
 	if (ft_is_empty_int_list(pt_lngbrs))

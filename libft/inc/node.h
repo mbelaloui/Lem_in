@@ -27,8 +27,10 @@ typedef struct			s_node
 	int					x;
 	int					y;
 	int					stats;
-	char				*name;
-	t_int_list			*list_neighbors;
+	int					dist;
+	int					id_father;
+	char					*name;
+	t_int_list				*list_neighbors;
 }						t_node;
 
 BOOL					ft_dell_node(t_node **node);

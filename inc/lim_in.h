@@ -58,6 +58,13 @@ typedef struct	s_option
 	int			u;
 }				t_option;
 
+typedef struct	s_ants
+{
+	char	*name;
+	char	*position;
+	struct s_ant *next;
+}		t_ants;
+
 void			ft_put_map(t_map *map);
 void			ft_init_map(t_map *map);
 

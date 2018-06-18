@@ -81,7 +81,7 @@ clean			:
 	@make -C $(LIBFT_DIR) clean
 	@rm -fr $(OBJS_DIR)
 	@echo "$(RED)cleaned the checker binary files$(WHITE)."
-	@say "cleaned the $(NAME) binary files."
+	@#say "cleaned the $(NAME) binary files."
 
 fclean			:
 	@make -C $(LIBFT_DIR) fclean
@@ -89,7 +89,7 @@ fclean			:
 	@echo "$(RED)cleaned the $(NAME) file$(WHITE)."
 	@rm -f $(NAME)
 	@echo "$(GREEN)the $(NAME) directory is totaly cleaned !!$(WHITE)."
-	@say "the $(NAME) directory is totaly cleaned !"
+	@#say "the $(NAME) directory is totaly cleaned !"
 
 re				: fclean all
 

@@ -15,7 +15,9 @@
 void	ft_init_option(t_option *op)
 {
 	op->f = 0;
-	op->r = 0;
+	op->h = 0;
 	op->l = 0;
 	op->m = 0;
+	op->r = 0;
+	op->u = 0;
 }

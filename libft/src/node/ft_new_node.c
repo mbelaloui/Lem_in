@@ -23,6 +23,8 @@ t_node		*ft_new_node(int id, char *name, intmax_t x, intmax_t y)
 	ret->x = x;
 	ret->y = y;
 	ret->stats = 0;
+	ret->dist = 0;
+	ret->id_father = -1;
 	ret->list_neighbors = NULL;
 	return (ret);
 }

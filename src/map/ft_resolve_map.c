@@ -232,8 +232,63 @@ t_int_list	*ft_backtrack_path(t_nodelist *listnode, int id_end)
 }
 
 
+t_ant	*ft_new_ant(int id, int pos)
+{
+	t_ant *ret;
+	
+	if (!(ret = malloc(sizeof(*ret))))
+                return (NULL);
+        ret->id = id;
+        ret->pos = pos;
+        ret->next = NULL;
+        return (ret);
+}
 
+BOOL    ft_add_end_antlist(int id, int pos, t_ant **list)
+{
+        t_ant      *temp_node;
+        t_ant      *pt_list;
 
+        if (!(temp_node = ft_new_ant(id, pos)))
+                return (F);
+        if (!(*list))
+                *list = temp_node;
+        else
+        {
+                pt_list = *list;
+                while (pt_list->next)
+                        pt_list = pt_list->next;
+                pt_list->next = temp_node;
+        }
+        return (T);
+}
+
+BOOL    ft_is_empty_antlist(const t_ant *list)
+{
+        return ((list) ? F : T);
+}
+
+void    ft_put_antlist(const t_ant *list, t_nodelist *listnode)
+{
+       	t_node *node;
+
+	 if (ft_is_empty_antlist(list))
+                ft_printf("[∅].\n");
+        else
+        {
+                ft_printf("[");
+                while (list)
+                {
+			node = ft_get_node_listnode(listnode, list->pos);
+                        ft_printf("%L%ld-%s", list->id, node->name);
+                        list = list->next;
+                        if (list)
+                                ft_printf(",");
+			//free node;
+                }
+                ft_printf("].\n");
+        }
+}
 
 /***********************************************/
 void	ft_resolve_map(t_map map, t_nodelist *listnode)
@@ -301,6 +356,16 @@ void	ft_resolve_map(t_map map, t_nodelist *listnode)
 		ft_put_node(ft_get_node_listnode(listnode, q_path->data));
 		q_path = q_path->next;
 	}
+
+	int id = 0;
+	t_ant *listants = NULL;
+	while (id < map.nbr_ants)
+	{
+		ft_add_end_antlist(id, map.start, &listants);
+		id++;
+	}
+
+	ft_put_antlist(listants, listnode);	
 
 	// reset stat to the rooms witch are'nt in the list and repeat intil ther's
 	// no room to reset or the path is empty

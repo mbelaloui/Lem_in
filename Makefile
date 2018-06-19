@@ -6,7 +6,7 @@
 #    By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/15 11:37:42 by mbelalou          #+#    #+#              #
-#    Updated: 2018/06/18 20:51:44 by mbelalou         ###   ########.fr        #
+#    Updated: 2018/06/19 14:28:42 by mbelalou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGES			= -Wall -Wextra -Werror -c
 
 DIR_DISPLAY		= display
 SRC_DISPLAY		= ft_put_file.c ft_put_help.c ft_put_links.c ft_put_option.c\
-				  ft_put_room.c ft_put_usage.c
+				  ft_put_room.c ft_put_usage.c ft_put_best_path.c
 SRCS_DISPLAY	= $(addprefix $(DIR_DISPLAY)/, $(SRC_DISPLAY))
 
 DIR_ERROR_MSG	= error_message
@@ -26,8 +26,8 @@ SRCS_ERROR_MSG	= $(addprefix $(DIR_ERROR_MSG)/, $(SRC_ERROR_MSG))
 
 DIR_ANT			= ant
 SRC_ANT			= ft_new_ant.c ft_add_end_antlist.c ft_is_empty_antlist.c\
-				  ft_put_antlist.c ft_dell_list_antlist.c ft_init_ants.c\
-				  ft_dell_bgn_ant.c
+				  ft_put_ant.c ft_dell_list_antlist.c ft_init_ants.c\
+				  ft_dell_bgn_ant.c ft_move_ant.c ft_send_ants.c
 SRCS_ANT		= $(addprefix $(DIR_ANT)/, $(SRC_ANT))
 
 DIR_MAP			= map

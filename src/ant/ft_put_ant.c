@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_list_antlist.c                             :+:      :+:    :+:   */
+/*   ft_put_ant.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 16:46:23 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:30:39 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/19 14:12:19 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/19 14:14:08 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/lim_in.h"
 
-BOOL	ft_dell_list_antlist(t_ant **to_free)
+void	ft_put_ant(const t_ant *list, t_nodelist *listnode)
 {
-	t_ant	*pt;
+	t_node	*node;
 
-	if (!to_free)
-		return (F);
-	pt = *to_free;
-	while (*to_free)
-	{
-		pt = *to_free;
-		*to_free = (*to_free)->next;
-		free(pt);
-	}
-	return (T);
+	node = ft_get_node_listnode(listnode, list->pos);
+	ft_printf("%L{green}%ld{eoc}-{yellow}%s{eoc} ", list->id, node->name);
 }

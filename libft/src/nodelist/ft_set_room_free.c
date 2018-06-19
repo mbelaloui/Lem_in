@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_list_antlist.c                             :+:      :+:    :+:   */
+/*   ft_set_room_free.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 16:46:23 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:30:39 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/19 14:10:32 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/19 14:59:45 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/lim_in.h"
+#include "../../inc/nodelist.h"
 
-BOOL	ft_dell_list_antlist(t_ant **to_free)
+void	ft_set_room_free(t_nodelist *listnode, int id)
 {
-	t_ant	*pt;
-
-	if (!to_free)
-		return (F);
-	pt = *to_free;
-	while (*to_free)
+	while (listnode)
 	{
-		pt = *to_free;
-		*to_free = (*to_free)->next;
-		free(pt);
+		if (listnode->node->id == id)
+		{
+			listnode->node->stats = FREE;
+			break ;
+		}
+		listnode = listnode->next;
 	}
-	return (T);
 }

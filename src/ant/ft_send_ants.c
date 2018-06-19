@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_list_antlist.c                             :+:      :+:    :+:   */
+/*   ft_send_ants.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 16:46:23 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:30:39 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/19 14:27:34 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/19 14:31:38 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/lim_in.h"
 
-BOOL	ft_dell_list_antlist(t_ant **to_free)
+void	ft_send_ants(t_ant *ants, t_int_list *path, t_nodelist *listnode,
+		t_map map)
 {
-	t_ant	*pt;
+	t_ant	*save_ant;
+	int		nbr;
 
-	if (!to_free)
-		return (F);
-	pt = *to_free;
-	while (*to_free)
+	nbr = 0;
+	ft_reste_status_listnode(listnode);
+	save_ant = ants;
+	while (nbr < map.nbr_ants)
 	{
-		pt = *to_free;
-		*to_free = (*to_free)->next;
-		free(pt);
+		ants = save_ant;
+		while (ants)
+		{
+			nbr += ft_move_ant(ants, path, listnode, map);
+			ants = ants->next;
+		}
+		ft_printf("\n");
 	}
-	return (T);
 }

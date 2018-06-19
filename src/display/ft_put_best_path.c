@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dell_list_antlist.c                             :+:      :+:    :+:   */
+/*   ft_put_best_path.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 16:46:23 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:30:39 by mbelalou         ###   ########.fr       */
+/*   Created: 2018/06/19 14:14:24 by mbelalou          #+#    #+#             */
+/*   Updated: 2018/06/19 14:30:56 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/lim_in.h"
 
-BOOL	ft_dell_list_antlist(t_ant **to_free)
+void	ft_put_best_path(t_int_list *path, t_nodelist *listnode)
 {
-	t_ant	*pt;
-
-	if (!to_free)
-		return (F);
-	pt = *to_free;
-	while (*to_free)
+	ft_printf("--------***** the best path ****--------\n");
+	while (path)
 	{
-		pt = *to_free;
-		*to_free = (*to_free)->next;
-		free(pt);
+		ft_put_node(ft_get_node_listnode(listnode, path->data));
+		path = path->next;
 	}
-	return (T);
 }

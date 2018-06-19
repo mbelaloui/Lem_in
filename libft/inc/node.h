@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 16:38:34 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 16:32:21 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 15:03:19 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct			s_node
 	int					stats;
 	int					dist;
 	int					id_father;
-	char					*name;
-	t_int_list				*list_neighbors;
+	char				*name;
+	t_int_list			*list_neighbors;
 }						t_node;
 
 BOOL					ft_dell_node(t_node **node);

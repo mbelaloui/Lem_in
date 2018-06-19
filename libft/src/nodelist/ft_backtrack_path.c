@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 15:23:59 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 19:35:33 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 14:46:02 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 t_int_list	*ft_backtrack_path(t_nodelist *listnode, int id_end, int id_start)
 {
-	t_int_list *list_father;
-	int id_father;
-	t_int_list *path;
+	t_int_list	*list_father;
+	t_int_list	*path;
+	int			id_father;
 
 	path = NULL;
 	ft_add_bgn_intlist(id_end, &path);
 	list_father = ft_get_father(id_end, listnode);
-	while ( (id_father = ft_get_id_best_father(list_father, listnode)) > -1
+	while ((id_father = ft_get_id_best_father(list_father, listnode)) > -1
 			&& id_father)
 	{
 		ft_add_bgn_intlist(id_father, &path);

@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 15:20:31 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/18 15:22:16 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 14:48:52 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 intmax_t	ft_get_id_best_father(t_int_list *list_fathers,
 		t_nodelist *listnode)
 {
-	intmax_t best_dist;
-	intmax_t best_id;
-	t_node*	temp_node;
+	intmax_t	best_dist;
+	intmax_t	best_id;
+	t_node		*temp_node;
 
 	if (!list_fathers)
 		return (-1);

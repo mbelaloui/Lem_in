@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 20:03:38 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/15 13:18:36 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 17:54:57 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_links_error(int error, char *line)
 		ft_printf("Error name room <%s>.\n"
 			"the name doesn't existe.\n<Error links id %d>.\n", line, error);
 	else if (error == ERROR_NO_LINKS)
-		ft_printf("Error links room.\nno links in between rooms in the"
+		ft_printf("Error links room.\nno links between rooms in the "
 				"file\n<Error links id %d>.\n", error);
 	else if (error == ERROR_LINK_ROOM_ROOM)
 		ft_printf("Error name room <%s-%s> \n"

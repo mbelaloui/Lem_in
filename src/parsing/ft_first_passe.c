@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 20:31:19 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/15 12:43:56 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 18:15:01 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ static BOOL		start(BOOL *s, char **line, t_charlist **ret)
 		ft_add_charlist(temp, ret);
 		ft_strdel(&temp);
 		ft_strdel(line);
-		while (get_next_line(0, line) &&
-				(ft_is_start(*line) || ft_is_comment(*line)))
+		while (get_next_line(0, line)
+				&& (ft_is_start(*line) || ft_is_comment(*line)))
 		{
 			ft_printf("%s\n", *line);
 			ft_strdel(line);
@@ -78,8 +78,8 @@ static BOOL		end(BOOL *e, char **line, t_charlist **ret)
 		ft_add_charlist(temp, ret);
 		ft_strdel(&temp);
 		ft_strdel(line);
-		while (get_next_line(0, line) &&
-				(ft_is_end(*line) || ft_is_comment(*line)))
+		while (get_next_line(0, line)
+				&& (ft_is_end(*line) || ft_is_comment(*line)))
 		{
 			ft_printf("%s\n", *line);
 			ft_strdel(line);

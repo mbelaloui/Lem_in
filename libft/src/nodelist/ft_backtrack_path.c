@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 15:23:59 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:46:02 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 18:10:16 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_int_list	*ft_backtrack_path(t_nodelist *listnode, int id_end, int id_start)
 		list_father = ft_get_father(id_father, listnode);
 	}
 	ft_clear_intlist(&list_father);
-	ft_add_bgn_intlist(id_start, &path);
+	if (!ft_is_in_int_list(id_start, path))
+		ft_add_bgn_intlist(id_start, &path);
 	return (path);
 }

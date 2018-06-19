@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 20:43:45 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/15 13:29:14 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 18:14:21 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,17 @@ t_charlist		*ft_get_room_graph(t_map *map, t_charlist *line,
 	cp = 0;
 	while (line)
 	{
-		if (!start_end_cas(&line, cp, map, &temp_node))
+		if (!start_end_cas(&line, cp++, map, &temp_node))
 			break ;
-		if (ft_exist_node_nodelist(temp_node, listnodes) &&
-				ft_dell_node(&temp_node))
+		if (ft_exist_node_nodelist(temp_node, listnodes)
+				&& ft_dell_node(&temp_node))
 			break ;
 		else
 			ft_add_end_list_nodelist(temp_node, &listnodes);
-		cp++;
 		line = line->next;
 	}
 	if (line && (ft_is_start(line->data) || ft_is_end(line->data)))
 		check_next(line);
-	if ((line && !ft_is_c_in_str('-', line->data)) || line->data[0] == 'L')
-		ft_room_error(ERROR_COORDINATES_ROOM_EXIST, line->data);
 	*lstnodes = listnodes;
 	return (line);
 }

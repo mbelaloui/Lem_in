@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 18:38:56 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/03 16:40:26 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 18:16:02 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static int		manage_nbr_shift(uintmax_t nbr, t_format *frmt, int shift)
 		shift--;
 		pt++;
 	}
-	if (frmt->precision == 0 && nbr == 0 && frmt->min_length > 1 &&
-			!frmt->flags.plus)
+	if (frmt->precision == 0 && nbr == 0 && frmt->min_length > 1
+			&& !frmt->flags.plus)
 		ft_put_buf(' ', PUT_CHAR);
 	return (pt);
 }
@@ -60,8 +60,8 @@ static void		ft_generat_nbr_ret(uintmax_t nbr, t_format *format)
 	size_ret = ft_max(format->len_temp, format->precision);
 	size_ret = ft_max(size_ret, format->min_length);
 	shift = (size_ret - ft_max(format->len_temp, format->precision));
-	if (nbr == 0 && format->precision == 0 && format->flags.plus &&
-			format->min_length > 1 && !format->flags.dash)
+	if (nbr == 0 && format->precision == 0 && format->flags.plus
+			&& format->min_length > 1 && !format->flags.dash)
 	{
 		ft_put_buf(' ', PUT_CHAR);
 		size_ret++;

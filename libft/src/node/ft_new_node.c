@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/08 18:13:26 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/08 18:56:43 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 15:32:33 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_node		*ft_new_node(int id, char *name, intmax_t x, intmax_t y)
 	ret->x = x;
 	ret->y = y;
 	ret->stats = 0;
-	ret->dist = 0;
+	ret->dist = -1;
 	ret->id_father = -1;
 	ret->list_neighbors = NULL;
 	return (ret);

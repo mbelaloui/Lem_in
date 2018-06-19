@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/15 13:35:25 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:45:30 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 18:11:17 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void		ft_resolve_map(t_map map, t_nodelist *listnode, t_option op)
 	if (map.nbr_ants < 1 || map.start < 0 || map.end < 0 || !listnode)
 		ft_erro_map(ERROR_NO_ENOUGH_DATA);
 	start = ft_get_node_listnode(listnode, map.start);
+	start->dist = 0;
 	ft_add_end_intlist(map.start, &path);
 	if (ft_find_path_width(listnode,
 				start,

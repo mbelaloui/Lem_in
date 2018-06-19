@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/06 18:15:00 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/05/03 16:39:57 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 18:17:45 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static int		manage_nbr_shift(intmax_t nbr, t_format *frmt, int shift)
 		shift--;
 		pt++;
 	}
-	if (frmt->precision == 0 && nbr == 0 && frmt->min_length > 1 &&
-			!frmt->flags.plus)
+	if (frmt->precision == 0 && nbr == 0 && frmt->min_length > 1
+			&& !frmt->flags.plus)
 		ft_put_buf(' ', PUT_CHAR);
 	return (pt);
 }
@@ -62,11 +62,11 @@ void			ft_generat_nbr_ret(intmax_t nbr, t_format *format)
 	shift = (size_ret - ft_max(format->len_temp, format->precision));
 	if ((format->flags.plus || nbr < 0))
 		shift--;
-	if (nbr == 0 && format->precision == 0 && format->flags.plus &&
-			format->min_length > 1 && !format->flags.dash)
+	if (nbr == 0 && format->precision == 0 && format->flags.plus
+			&& format->min_length > 1 && !format->flags.dash)
 		ft_put_buf(' ', PUT_CHAR);
-	if (nbr == 0 && format->precision == 0 && format->flags.plus &&
-			format->min_length > 1 && format->flags.dash)
+	if (nbr == 0 && format->precision == 0 && format->flags.plus
+			&& format->min_length > 1 && format->flags.dash)
 		size_ret++;
 	put_generated_ret(format, nbr, size_ret, shift);
 }

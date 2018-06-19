@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 20:02:03 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/15 13:25:23 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 15:58:23 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	ft_room_error(int error, char *line)
 				"<Error room id %d>\n", error);
 	else if (error == ERROR_NAME_ROOM_FORMAT)
 		ft_printf("Error line <%s> \nthe name of the room must be a block"
-				" with out '-' in it.\n<Error room id %d>\n", line, error);
+				" with out '-' in it and don't start with 'L'.\n"
+				"<Error room id %d>\n", line, error);
 	else if (error == ERROR_FORMAT_LINE)
 		ft_printf("Error line <%s> \nBad format line room <Error syntax id the"
 				" name should not contain ' ' in it.\n"

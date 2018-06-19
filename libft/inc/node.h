@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/06 16:38:34 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 15:03:19 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 15:22:04 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 typedef struct			s_node
 {
 	int					id;
-	int					x;
-	int					y;
+	intmax_t			x;
+	intmax_t			y;
 	int					stats;
 	int					dist;
 	int					id_father;

@@ -6,13 +6,11 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 15:03:36 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:39:34 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 15:22:14 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/lim_in.h"
-
-// a continuer voir les erruer et affihcer les message corecpondant
 
 void	ft_erro_map(int error)
 {

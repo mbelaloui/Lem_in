@@ -6,7 +6,7 @@
 /*   By: mbelalou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 15:20:31 by mbelalou          #+#    #+#             */
-/*   Updated: 2018/06/19 14:48:52 by mbelalou         ###   ########.fr       */
+/*   Updated: 2018/06/19 15:34:37 by mbelalou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ intmax_t	ft_get_id_best_father(t_int_list *list_fathers,
 	while (list_fathers && best_dist)
 	{
 		temp_node = ft_get_node_listnode(listnode, list_fathers->data);
-		if (temp_node->dist < best_dist)
+		if (temp_node->dist < best_dist && temp_node->dist >= 0)
 		{
 			best_id = temp_node->id;
 			best_dist = temp_node->dist;
